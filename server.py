@@ -26,9 +26,9 @@ app = Flask(__name__)
 CORS(app)  # allow frontend requests
 
 # Load ML models (same as your code)
-model = joblib.load("gesture_model_v2.pkl")
-scaler = joblib.load("scaler_v2.pkl")
-label_encoder = joblib.load("label_encoder_v2.pkl")
+model = joblib.load(open(gesture_model_v2.pkl, "rb"))
+scaler = joblib.load(open(scaler_v2.pkl, "rb"))
+label_encoder = joblib.load(open(label_encoder_v2.pkl, "rb"))
 
 # 63 features (x,y,z for 21 landmarks)
 feature_columns = [str(i) for i in range(63)]
@@ -100,6 +100,7 @@ def home():
 
 if __name__ == "__main__":
     app.run(port=5000)
+
 
 
 
