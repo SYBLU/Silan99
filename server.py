@@ -13,7 +13,7 @@ model_path = hf_hub_download(
 )
 
 scaler_path = hf_hub_download(
-    repo_id="your-username/your-model-repo",
+    repo_id="gauri99/silan at main",
     filename="scaler.pkl"
 )
 
@@ -95,4 +95,5 @@ def home():
 
 if __name__ == "__main__":
     app.run(port=5000)
+
 
