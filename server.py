@@ -5,6 +5,17 @@ import numpy as np
 import mediapipe as mp
 import joblib
 import pandas as pd
+from huggingface_hub import hf_hub_download
+
+model_path = hf_hub_download(
+    repo_id="gauri99/silan at main",
+    filename="model.pkl"
+)
+
+scaler_path = hf_hub_download(
+    repo_id="your-username/your-model-repo",
+    filename="scaler.pkl"
+)
 
 app = Flask(__name__)
 CORS(app)  # allow frontend requests
@@ -84,3 +95,4 @@ def home():
 
 if __name__ == "__main__":
     app.run(port=5000)
+
