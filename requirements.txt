@@ -1,0 +1,11 @@
+flask
+numpy
+pandas
+opencv-python
+mediapipe
+scikit-learn
+joblib
+pickle-mixin
+huggingface_hub
+requests
+gunicorn
