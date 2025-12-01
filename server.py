@@ -9,21 +9,26 @@ from huggingface_hub import hf_hub_download
 
 model_path = hf_hub_download(
     repo_id="gauri99/silan at main",
-    filename="model.pkl"
+    filename="gesture_model_v2.pkl"
 )
 
 scaler_path = hf_hub_download(
     repo_id="gauri99/silan at main",
-    filename="scaler.pkl"
+    filename="scaler_v2.pkl"
+)
+
+label_path = hf_hub_download(
+    repo_id="gauri99/silan at main",
+    filename="label_encoder_v2.pkl"
 )
 
 app = Flask(__name__)
 CORS(app)  # allow frontend requests
 
 # Load ML models (same as your code)
-model = joblib.load("models/gesture_model_v2.pkl")
-scaler = joblib.load("models/scaler_v2.pkl")
-label_encoder = joblib.load("models/label_encoder_v2.pkl")
+model = joblib.load("gesture_model_v2.pkl")
+scaler = joblib.load("scaler_v2.pkl")
+label_encoder = joblib.load("label_encoder_v2.pkl")
 
 # 63 features (x,y,z for 21 landmarks)
 feature_columns = [str(i) for i in range(63)]
@@ -95,5 +100,6 @@ def home():
 
 if __name__ == "__main__":
     app.run(port=5000)
+
 
 
